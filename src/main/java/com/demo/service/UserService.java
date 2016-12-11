@@ -10,4 +10,5 @@ public interface UserService {
 
     public void addUser(String name);
 
+    public void deleteUserById(Long id);
 }

@@ -14,4 +14,7 @@
         INSERT INTO user(name) VALUES(#{name});
     </insert>
 
+    <delete id="deleteUserById" parameterType="long">
+        DELETE FROM user where id=#{id}
+    </delete>
 </mapper>

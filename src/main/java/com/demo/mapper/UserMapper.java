@@ -5,9 +5,11 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface UserMapper {
 
-    public User queryById(Long id);
+     User queryById(Long id);
 
-    public void updateUserById(Long id,String name);
+     void updateUserById(Long id,String name);
 
-    public void addUser(String name);
+     void addUser(String name);
+
+     void deleteUserById(Long id);
 }
