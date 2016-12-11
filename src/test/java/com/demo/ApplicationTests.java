@@ -1,9 +1,11 @@
 package com.demo;
 
 import com.demo.controller.UserController;
+import com.demo.utils.RedisUtil;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.http.MediaType;
 import org.springframework.mock.web.MockServletContext;
@@ -19,22 +21,25 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = MockServletContext.class)
+@SpringApplicationConfiguration(classes = Application.class)
 @WebAppConfiguration
 public class ApplicationTests {
 
-	private MockMvc mvc;
-
-	@Before
-	public void setUp() throws Exception {
-		mvc = MockMvcBuilders.standaloneSetup(new UserController()).build();
-	}
+	@Autowired
+	private RedisUtil redisUtil;
 
 	@Test
-	public void getHello() throws Exception {
-		mvc.perform(MockMvcRequestBuilders.get("/hello").accept(MediaType.APPLICATION_JSON))
-				.andExpect(status().isOk())
-				.andExpect(content().string(equalTo("Hello World")));
+	public void redisTest(){
+		String key="tudou";
+		boolean flag=redisUtil.set(key,"18600198020");
+		System.out.println("执行set方法："+flag);
+		String mobile= (String) redisUtil.get(key);
+		System.out.println("mobile:"+mobile);
+		flag=redisUtil.set(key,"123123123");
+		System.out.println("执行reset："+flag);
+		String value= (String) redisUtil.get(key);
+		System.out.println("value:"+value);
 	}
+
 
 }
