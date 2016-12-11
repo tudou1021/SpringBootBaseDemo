@@ -9,5 +9,5 @@
 
 4、集成redis，添加redis缓存管理类及redis工具类
 
-5、集成Swagger插件，默认只在dev和test环境下可用。
+5、集成Swagger插件，默认只在dev和test环境下可用。项目启动后访问：localhost:8080/swagger-ui.html
 
