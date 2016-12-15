@@ -5,6 +5,13 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
 
+/**
+ * @Title:获取bean工具类
+ * @Description:TODO
+ * @author:xu.he
+ * @create:2016/12/15 上午10:45
+ * @version:v1.0
+ */
 @Component
 public class BeanContext implements ApplicationContextAware{
 

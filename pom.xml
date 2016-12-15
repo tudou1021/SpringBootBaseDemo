@@ -60,26 +60,34 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-redis</artifactId>
 		</dependency>
+		<!--devtools热部署插件
+		   1、可以实现页面（即页面修改后会立即生效），
+		   2、实现类文件热部署（类文件修改后不会立即生效），
+		   3、实现对属性文件的热部署。
+		   即devtools会监听classpath下的文件变动，需要点击编译按钮触发-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+		</dependency>
 
 		<dependency>
 			<groupId>org.mybatis.spring.boot</groupId>
 			<artifactId>mybatis-spring-boot-starter</artifactId>
 			<version>1.1.1</version>
 		</dependency>
-
+		<!-- mysql 驱动插件 -->
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.21</version>
 		</dependency>
-
+		<!-- alibaba druid 数据源连接池 -->
 		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>druid</artifactId>
 			<version>1.0.11</version>
 		</dependency>
-
-		<!-- Mybatis Generator -->
+		<!-- Mybatis Generator 逆向工程生成dao层 -->
 		<dependency>
 			<groupId>org.mybatis.generator</groupId>
 			<artifactId>mybatis-generator-core</artifactId>
@@ -93,13 +101,12 @@
 			<artifactId>pagehelper</artifactId>
 			<version>${pagehelper.version}</version>
 		</dependency>
-
+		<!--fastjson插件-->
 		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>fastjson</artifactId>
 			<version>1.2.21</version>
 		</dependency>
-
 		<!--swagger插件-->
 		<dependency>
 			<groupId>io.springfox</groupId>
@@ -111,23 +118,6 @@
 			<artifactId>springfox-swagger-ui</artifactId>
 			<version>2.2.2</version>
 		</dependency>
-
 	</dependencies>
 	
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-				<!--配置热部署-->
-				<dependencies>
-					<dependency>
-						<groupId>org.springframework</groupId>
-						<artifactId>springloaded</artifactId>
-						<version>1.2.0.RELEASE</version>
-					</dependency>
-				</dependencies>
-			</plugin>
-		</plugins>
-	</build>
 </project>

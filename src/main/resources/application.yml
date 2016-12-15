@@ -1,6 +1,11 @@
 spring:
   profiles:
     active: dev
+  threadPool:
+    corePoolSize: 30
+    maxPoolSize: 100
+    queueCapacity: 100
+    keepAliveSeconds: 300
 datasource:
   write: &common-conf
     driver-class-name: com.mysql.jdbc.Driver

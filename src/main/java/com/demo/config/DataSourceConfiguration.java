@@ -11,7 +11,11 @@ import org.springframework.context.annotation.Primary;
 import javax.sql.DataSource;
 
 /**
- * Created by tudoubig on 2016/12/9.
+ * @Title:数据源信息管理器
+ * @Description:TODO
+ * @author:xu.he
+ * @create:2016/12/15 上午10:48
+ * @version:v1.0
  */
 @Configuration
 public class DataSourceConfiguration {

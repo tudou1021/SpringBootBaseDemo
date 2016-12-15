@@ -1,7 +1,11 @@
 package com.demo.ds;
 
 /**
- * Created by tudoubig on 2016/12/9.
+ * @Title:数据源标识管理器
+ * @Description:TODO
+ * @author:xu.he
+ * @create:2016/12/15 上午10:46
+ * @version:v1.0
  */
 public class DataSourceContextHolder {
 

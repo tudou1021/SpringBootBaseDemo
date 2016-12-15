@@ -6,18 +6,26 @@ import org.springframework.boot.context.embedded.FilterRegistrationBean;
 import org.springframework.boot.context.embedded.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 
 /**
- * Created by tudoubig on 2016/12/9.
+ * @Title:druid数据库连接池配置
+ * @Description:TODO
+ * @author:xu.he
+ * @create:2016/12/15 上午9:53
+ * @version:v1.0
  */
+@Profile(value = {"dev","test"})
 @Configuration
 public class DataSourcesConfig {
 
     /**
-     * druid监控
-     * @return
+     * @Description:druid监控配置
+     * @author:xu.he
+     * @create:2016/12/15 上午9:56
+     * @param
      */
-    @Bean
+   @Bean
     public ServletRegistrationBean druidServlet() {
         ServletRegistrationBean reg = new ServletRegistrationBean();
         reg.setServlet(new StatViewServlet());
@@ -30,8 +38,10 @@ public class DataSourcesConfig {
     }
 
     /**
-     * druid监控过滤
-     * @return
+     * @Description:druid监控过滤
+     * @author:xu.he
+     * @create:2016/12/15 上午9:57
+     * @param
      */
     @Bean
     public FilterRegistrationBean filterRegistrationBean() {

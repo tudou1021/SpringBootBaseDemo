@@ -5,6 +5,14 @@ import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+
+/**
+ * @Title:MyBatis自动扫描管理类
+ * @Description:TODO
+ * @author:xu.he
+ * @create:2016/12/15 上午10:45
+ * @version:v1.0
+ */
 @Configuration
 @AutoConfigureAfter(MybatisConfiguration.class)
 public class MyBatisMapperScannerConfig {

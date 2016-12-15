@@ -1,6 +1,5 @@
 package com.demo;
 
-import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
@@ -13,10 +12,11 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
- * Swagger2 配置管理类
- * User: tudoubig
- * Date: 2016/12/11
- * Time: 09:19
+ * @Title:Swagger2 配置管理类
+ * @Description:TODO
+ * @author:xu.he
+ * @create:2016/12/15 上午10:46
+ * @version:v1.0
  */
 @Profile(value = {"dev","test"})
 @Configuration

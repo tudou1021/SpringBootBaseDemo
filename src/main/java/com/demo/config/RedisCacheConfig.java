@@ -20,13 +20,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * redis缓存管理类
- * User: tudoubig
- * Date: 2016/12/11
- * Time: 11:29
- * To change this template use File | Settings | File Templates.
+ * @Title:redis缓存管理类
+ * @Description:TODO
+ * @author:xu.he
+ * @create:2016/12/15 上午10:02
+ * @version:v1.0
  */
-
 @CacheConfig
 @EnableCaching
 public class RedisCacheConfig extends CachingConfigurerSupport {

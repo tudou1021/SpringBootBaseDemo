@@ -9,6 +9,13 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
 
+/**
+ * @Title:数据源事务管理器
+ * @Description:TODO
+ * @author:xu.he
+ * @create:2016/12/15 上午10:01
+ * @version:v1.0
+ */
 @Configuration
 @EnableTransactionManagement
 public class DyamicDataSourceTransactionManagerAutoConfiguration extends DataSourceTransactionManagerAutoConfiguration {

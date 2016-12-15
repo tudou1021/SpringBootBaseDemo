@@ -6,7 +6,11 @@ import org.aspectj.lang.annotation.Before;
 import org.springframework.stereotype.Component;
 
 /**
- * Created by tudoubig on 2016/12/9.
+ * @Title:数据源动态拦截器
+ * @Description:根据ServiceName匹配方法名称设置数据源
+ * @author:xu.he
+ * @create:2016/12/15 上午9:59
+ * @version:v1.0
  */
 @Component
 @Aspect

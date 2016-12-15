@@ -6,7 +6,11 @@ import org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- * Created by tudoubig on 2016/12/9.
+ * @Title:数据源路由器
+ * @Description:TODO
+ * @author:xu.he
+ * @create:2016/12/15 上午10:45
+ * @version:v1.0
  */
 public class DataSourceRouter extends AbstractRoutingDataSource {
 

@@ -1,8 +1,8 @@
 package com.demo.config;
 
+import com.demo.BeanContext;
 import com.demo.ds.DataSourceRouter;
 import com.demo.ds.DataSourceType;
-import com.demo.BeanContext;
 import com.github.pagehelper.PageHelper;
 import org.apache.ibatis.plugin.Interceptor;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -22,6 +22,13 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
+/**
+ * @Title:Mybatis配置管理类
+ * @Description:TODO
+ * @author:xu.he
+ * @create:2016/12/15 上午10:44
+ * @version:v1.0
+ */
 @Configuration
 @AutoConfigureAfter(DataSourceConfiguration.class)
 public class MybatisConfiguration extends MybatisAutoConfiguration {
