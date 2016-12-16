@@ -5,7 +5,7 @@ import com.demo.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Service
+@Service("userService")
 public class UserServiceImpl implements UserService {
 
     @Autowired
@@ -28,7 +28,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void deleteUserById(Long id) {
+    public void deleteUserById(Long id) throws Exception {
         userMapper.deleteUserById(id);
+        throw new Exception("error");
     }
 }

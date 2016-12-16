@@ -2,6 +2,7 @@ package com.demo.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.web.WebMvcAutoConfiguration;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
@@ -18,16 +19,45 @@ import java.util.concurrent.ThreadPoolExecutor;
  * @version:v1.0
  */
 @Configuration
+@ConfigurationProperties(prefix = "spring.threadPool" )
 public class ThreadPoolTaskExecutorConfig extends WebMvcAutoConfiguration.WebMvcAutoConfigurationAdapter{
 
-    @Value("${spring.threadPool.corePoolSize}")
     private Integer corePoolSize;
-    @Value("${spring.threadPool.maxPoolSize}")
     private Integer maxPoolSize;
-    @Value("${spring.threadPool.queueCapacity}")
     private Integer queueCapacity;
-    @Value("${spring.threadPool.keepAliveSeconds}")
     private Integer keepAliveSeconds;
+
+    public Integer getCorePoolSize() {
+        return corePoolSize;
+    }
+
+    public void setCorePoolSize(Integer corePoolSize) {
+        this.corePoolSize = corePoolSize;
+    }
+
+    public Integer getMaxPoolSize() {
+        return maxPoolSize;
+    }
+
+    public void setMaxPoolSize(Integer maxPoolSize) {
+        this.maxPoolSize = maxPoolSize;
+    }
+
+    public Integer getQueueCapacity() {
+        return queueCapacity;
+    }
+
+    public void setQueueCapacity(Integer queueCapacity) {
+        this.queueCapacity = queueCapacity;
+    }
+
+    public Integer getKeepAliveSeconds() {
+        return keepAliveSeconds;
+    }
+
+    public void setKeepAliveSeconds(Integer keepAliveSeconds) {
+        this.keepAliveSeconds = keepAliveSeconds;
+    }
 
     /**
      * 定义系统任务Task线程池

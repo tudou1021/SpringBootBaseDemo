@@ -40,7 +40,7 @@ public class MybatisConfiguration extends MybatisAutoConfiguration {
     @Override
     public SqlSessionFactory sqlSessionFactory(DataSource dataSource) throws Exception {
         SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
-        bean.setDataSource(roundRobinDataSouce());
+        bean.setDataSource(roundRobinDataSource());
         bean.setTypeAliasesPackage("com.demo.model");
 
         //分页插件,插件无非是设置mybatis的拦截器
@@ -78,7 +78,7 @@ public class MybatisConfiguration extends MybatisAutoConfiguration {
      * @return
      */
     @Bean
-    public AbstractRoutingDataSource roundRobinDataSouce() {
+    public AbstractRoutingDataSource roundRobinDataSource() {
         int size = Integer.parseInt(dataSourceSize);
         DataSourceRouter dataSourceRouter = new DataSourceRouter(size);
         Map<Object, Object> targetDataSources = new HashMap<Object, Object>();

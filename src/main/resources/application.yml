@@ -25,3 +25,39 @@ datasource:
     maxOpenPreparedStatements: 20
   read1: *common-conf
   read2: *common-conf
+transaction:
+  list:
+    - matchName: save*
+      rule: PROPAGATION_REQUIRED,-Exception
+    - matchName: del*
+      rule: PROPAGATION_REQUIRED,-Exception
+    - matchName: add*
+      rule: PROPAGATION_REQUIRED,-Exception
+    - matchName: edit*
+      rule: PROPAGATION_REQUIRED,-Exception
+    - matchName: upd*
+      rule: PROPAGATION_REQUIRED,-Exception
+    - matchName: rem*
+      rule: PROPAGATION_REQUIRED,-Exception
+    - matchName: create*
+      rule: PROPAGATION_REQUIRED,-Exception
+    - matchName: insert*
+      rule: PROPAGATION_REQUIRED,-Exception
+    - matchName: query*
+      rule: PROPAGATION_SUPPORTS,-Exception
+    - matchName: is*
+      rule: PROPAGATION_SUPPORTS,-Exception
+    - matchName: find*
+      rule: PROPAGATION_SUPPORTS,-Exception
+    - matchName: get*
+      rule: PROPAGATION_SUPPORTS,-Exception
+    - matchName: load*
+      rule: PROPAGATION_SUPPORTS,-Exception
+    - matchName: count*
+      rule: PROPAGATION_SUPPORTS,-Exception
+    - matchName: list*
+      rule: PROPAGATION_SUPPORTS,-Exception
+    - matchName: check*
+      rule: PROPAGATION_SUPPORTS,-Exception
+
+
