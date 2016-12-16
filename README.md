@@ -12,3 +12,5 @@
 5、集成Swagger插件，默认只在dev和test环境下可用。项目启动后访问：localhost:8080/swagger-ui.html
 
 6、集成热部署插件，添加使用Spring的TaskExecutor线程池，添加异步Controller的示例
+
+7、整合事务管理器和事务拦截器，使用AOP代理目标类，执行相应拦截器
