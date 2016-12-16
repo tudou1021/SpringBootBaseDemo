@@ -80,6 +80,7 @@ public class DataSourceTransactionInterceptor {
     @Bean
     public BeanNameAutoProxyCreator beanNameAutoProxyCreator(){
         BeanNameAutoProxyCreator creator=new BeanNameAutoProxyCreator();
+        //设置要代理的beanName
         creator.setBeanNames(new String[]{"userService"});
         creator.setInterceptorNames("txInterceptor");
         return creator;
