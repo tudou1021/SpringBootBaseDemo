@@ -24,7 +24,7 @@ public class DataSourceDynamicAop {
             "|| execution(* com.demo.service.*.load*(..)) " +
             "|| execution(* com.demo.service.*.count*(..)) " +
             "|| execution(* com.demo.service.*.check*(..)) " +
-            "|| execution(* com.demo.service.*.list*(..)) ")
+            "|| execution(* com.demo.service.*.list*(..)) " )
     public void setReadDataSource(){
         DataSourceContextHolder.read();
     }
@@ -40,4 +40,5 @@ public class DataSourceDynamicAop {
     public void setWriteDataSource(){
         DataSourceContextHolder.write();
     }
+
 }

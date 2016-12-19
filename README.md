@@ -14,3 +14,11 @@
 6、集成热部署插件，添加使用Spring的TaskExecutor线程池，添加异步Controller的示例
 
 7、整合事务管理器和事务拦截器，使用AOP代理目标类，执行相应拦截器
+
+8、集成dubbox框架，使用@ImportResource进行环境区分并引入，需要在本地自行编译。https://github.com/shuvigoss/dubbox
+
+9、需要在本地或者远程安装zookeeper服务。
+
+下载地址：http://apache.website-solution.net/zookeeper/zookeeper-3.4.6/zookeeper-3.4.6.tar.gz
+
+参考文档：http://blog.csdn.net/lihao21/article/details/51778255

@@ -1,7 +1,9 @@
 package com.demo.ds;
 
 import com.demo.BeanContext;
+import com.demo.config.MybatisConfiguration;
 import org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator;
+import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -24,7 +26,7 @@ import java.util.Properties;
 @Configuration
 @EnableTransactionManagement
 @ConfigurationProperties(prefix = "transaction")
-public class DataSourceTransactionInterceptor {
+public class DataSourceTransactionInterceptor{
 
 
     private List<DataSourceTransactionAttribute.DSAttribute> list;
@@ -72,6 +74,7 @@ public class DataSourceTransactionInterceptor {
         transactionInterceptor.setTransactionAttributeSource(transactionAttributeSource());
         return transactionInterceptor;
     }
+
 
     /**
      * 针对BeanName进行事务拦截
