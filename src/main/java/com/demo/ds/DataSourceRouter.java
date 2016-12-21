@@ -31,7 +31,8 @@ public class DataSourceRouter extends AbstractRoutingDataSource {
             logger.info("{DataSourceRouter set write key !!!!}");
             return DataSourceType.WRITE.name();
         }
-        int number=count.incrementAndGet()%Integer.MAX_VALUE;
+        //避免number出现负数，incr当到达Integer最大值后，再递增会出现负数
+        int number=count.incrementAndGet()&Integer.MAX_VALUE;
         int lookUpKey=number % dataSourceNumber;
         logger.info("{DataSourceRouter set read{"+lookUpKey+"} key !!!!}");
         return new Integer(lookUpKey);

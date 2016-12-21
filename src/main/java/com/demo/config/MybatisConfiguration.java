@@ -3,6 +3,7 @@ package com.demo.config;
 import com.demo.BeanContext;
 import com.demo.ds.DataSourceRouter;
 import com.demo.ds.DataSourceType;
+import com.github.pagehelper.Dialect;
 import com.github.pagehelper.PageHelper;
 import org.apache.ibatis.plugin.Interceptor;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -60,6 +61,8 @@ public class MybatisConfiguration extends MybatisAutoConfiguration {
         properties.setProperty("supportMethodsArguments", "true");
         properties.setProperty("returnPageInfo", "check");
         properties.setProperty("params", "count=countSql");
+        properties.setProperty("pageSizeZero", "true");
+        properties.setProperty("dialect", Dialect.mysql.name());
         pageHelper.setProperties(properties);
 
         //添加插件
@@ -70,7 +73,10 @@ public class MybatisConfiguration extends MybatisAutoConfiguration {
         try {
             Resource[] mapperResource=resolver.getResources(mapperLocations);
             bean.setMapperLocations(mapperResource);
-            return bean.getObject();
+            SqlSessionFactory factory=bean.getObject();
+            //mybatis全局设置
+            factory.getConfiguration().setMapUnderscoreToCamelCase(false);
+            return factory;
         } catch (Exception e) {
             throw new RuntimeException("sqlSessionFactory init fail",e);
         }
