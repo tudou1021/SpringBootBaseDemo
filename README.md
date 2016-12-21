@@ -22,3 +22,16 @@
 下载地址：http://apache.website-solution.net/zookeeper/zookeeper-3.4.6/zookeeper-3.4.6.tar.gz
 
 参考文档：http://blog.csdn.net/lihao21/article/details/51778255
+
+
+#SpringBoot参考文档
+
+1、常用注解：http://www.iteye.com/topic/1144685
+
+2、常用Starter参考：http://blog.csdn.net/chszs/article/details/50610474
+
+3、基础教程：http://bbs.springcloud.cn/d/2-dd-spring-boot
+
+4、官方文档：http://docs.spring.io/spring-boot/docs/1.3.2.RELEASE/reference/htmlsingle/
+
+5、Swagger参考文档：http://www.cnblogs.com/java-zhao/p/5348113.html

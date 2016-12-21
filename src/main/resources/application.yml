@@ -59,5 +59,9 @@ transaction:
       rule: PROPAGATION_SUPPORTS,-Exception
     - matchName: check*
       rule: PROPAGATION_SUPPORTS,-Exception
+mybatis:
+  type-aliases-package: com.demo.model
+  mapper-locations: classpath:mapper/*.xml
+
 
 

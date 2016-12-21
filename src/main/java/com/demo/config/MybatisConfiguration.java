@@ -9,10 +9,13 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration;
+import org.mybatis.spring.mapper.MapperScannerConfigurer;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
+import org.springframework.boot.autoconfigure.AutoConfigureOrder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.core.io.support.ResourcePatternResolver;
 import org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource;
@@ -36,12 +39,19 @@ public class MybatisConfiguration extends MybatisAutoConfiguration {
     @Value("${datasource.readSize}")
     private String dataSourceSize;
 
+    @Value("${mybatis.type-aliases-package}")
+    private String typeAliasesPackage;
+
+    @Value("${mybatis.mapper-locations}")
+    private String mapperLocations;
+
     @Bean(name = "sqlSessionFactory")
     @Override
     public SqlSessionFactory sqlSessionFactory(DataSource dataSource) throws Exception {
         SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
         bean.setDataSource(roundRobinDataSource());
-        bean.setTypeAliasesPackage("com.demo.model");
+        //设置javabean目录，mybatis会给java对象自动创建alias别名
+        bean.setTypeAliasesPackage(typeAliasesPackage);
 
         //分页插件,插件无非是设置mybatis的拦截器
         PageHelper pageHelper = new PageHelper();
@@ -53,12 +63,13 @@ public class MybatisConfiguration extends MybatisAutoConfiguration {
         pageHelper.setProperties(properties);
 
         //添加插件
-        bean.setPlugins(new Interceptor[]{pageHelper});
+//        bean.setPlugins(new Interceptor[]{pageHelper});
 
         //添加XML目录
         ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
         try {
-            bean.setMapperLocations(resolver.getResources("classpath:mapper/*.xml"));
+            Resource[] mapperResource=resolver.getResources(mapperLocations);
+            bean.setMapperLocations(mapperResource);
             return bean.getObject();
         } catch (Exception e) {
             throw new RuntimeException("sqlSessionFactory init fail",e);
@@ -79,7 +90,7 @@ public class MybatisConfiguration extends MybatisAutoConfiguration {
      */
     @Bean
     public AbstractRoutingDataSource roundRobinDataSource() {
-        int size = Integer.parseInt(dataSourceSize);
+         int size = Integer.parseInt(dataSourceSize);
         DataSourceRouter dataSourceRouter = new DataSourceRouter(size);
         Map<Object, Object> targetDataSources = new HashMap<Object, Object>();
         DataSource writeDataSource = (DataSource) BeanContext.getBean("writeDataSource");

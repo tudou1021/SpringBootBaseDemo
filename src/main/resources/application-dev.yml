@@ -8,17 +8,17 @@ datasource:
   type: com.alibaba.druid.pool.DruidDataSource
   #主库
   write:
-    url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf-8
+    url: jdbc:mysql://121.43.109.70:3308/test?useUnicode=true&characterEncoding=utf-8
     username: root
-    password: 123456
+    password: 1qaz2wsx
   read1:
-    url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf-8
-    username: read1
-    password: 123456
+    url: jdbc:mysql://121.43.109.70:3308/test?useUnicode=true&characterEncoding=utf-8
+    username: javanose_read
+    password: 123qwe
   read2:
-    url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf-8
-    username: read2
-    password: 123456
+    url: jdbc:mysql://121.43.109.70:3308/test?useUnicode=true&characterEncoding=utf-8
+    username: javanose_read
+    password: 123qwe
 spring:
   redis:
     host: 127.0.0.1

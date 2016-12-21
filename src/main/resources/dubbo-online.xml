@@ -12,9 +12,7 @@
     <dubbo:registry address="zookeeper://127.0.0.1:2181" check="false"/>
 
     <!-- 生产者，对外发布userService接口 -->
-    <dubbo:service id="userService" interface="com.demo.service.UserService" ref="userService"/>
-    <!-- 消费者，生成远程代理 -->
-    <!--<dubbo:reference id="userBaseService" interface="xxxxxxxxxxxx"/>-->
+    <dubbo:service id="uService" interface="com.demo.service.UserService" ref="userService"/>
 
 
 </beans>

@@ -9,6 +9,7 @@ import org.springframework.cache.annotation.CachingConfigurerSupport;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.cache.interceptor.KeyGenerator;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.cache.RedisCacheManager;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -26,8 +27,7 @@ import java.util.Map;
  * @create:2016/12/15 上午10:02
  * @version:v1.0
  */
-@CacheConfig
-@EnableCaching
+@Configuration
 public class RedisCacheConfig extends CachingConfigurerSupport {
 
     /**
@@ -58,14 +58,7 @@ public class RedisCacheConfig extends CachingConfigurerSupport {
      */
     @Bean
     public CacheManager cacheManager(RedisTemplate redisTemplate) {
-        RedisCacheManager cacheManager = new RedisCacheManager(redisTemplate);
-        //设置缓存过期时间
-        // cacheManager.setDefaultExpiration(60);//秒
-        //设置value的过期时间
-        Map<String,Long> map=new HashMap();
-        map.put("test",60L);
-        cacheManager.setExpires(map);
-        return cacheManager;
+        return new RedisCacheManager(redisTemplate);
     }
 
     /**
