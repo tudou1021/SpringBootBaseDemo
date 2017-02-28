@@ -1,5 +1,6 @@
 package com.demo.config;
 
+import com.alibaba.druid.filter.stat.StatFilter;
 import com.alibaba.druid.support.http.StatViewServlet;
 import com.alibaba.druid.support.http.WebStatFilter;
 import org.springframework.boot.context.embedded.FilterRegistrationBean;
@@ -17,7 +18,7 @@ import org.springframework.context.annotation.Profile;
  */
 @Profile(value = {"dev","test"})
 @Configuration
-public class DataSourcesConfig {
+public class DataSourcesDruidConfig {
 
     /**
      * @Description:druid监控配置
@@ -50,5 +51,14 @@ public class DataSourcesConfig {
         filterRegistrationBean.addUrlPatterns("/*");
         filterRegistrationBean.addInitParameter("exclusions", "*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*");
         return filterRegistrationBean;
+    }
+
+    @Bean
+    public StatFilter statFilter(){
+        StatFilter statFilter=new StatFilter();
+        statFilter.setLogSlowSql(true);
+        statFilter.setSlowSqlMillis(10);
+        statFilter.setMergeSql(true);
+        return statFilter;
     }
 }

@@ -71,10 +71,10 @@
            2、实现类文件热部署（类文件修改后不会立即生效），
            3、实现对属性文件的热部署。
            即devtools会监听classpath下的文件变动，需要点击编译按钮触发-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-devtools</artifactId>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.boot</groupId>-->
+            <!--<artifactId>spring-boot-devtools</artifactId>-->
+        <!--</dependency>-->
 
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
@@ -177,7 +177,7 @@
                 </exclusion>
             </exclusions>
         </dependency>
-				<!-- dom4j依赖 -->
+        <!-- dom4j依赖 -->
         <dependency>
             <groupId>dom4j</groupId>
             <artifactId>dom4j</artifactId>

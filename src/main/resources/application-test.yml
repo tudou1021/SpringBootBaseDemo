@@ -31,3 +31,8 @@ spring:
       max-active: 1000
       max-wait: -1
     timeout: 0
+dubbo:
+  registry:
+    address: zookeeper://127.0.0.1:2181
+  port:
+    dubbo: 20881

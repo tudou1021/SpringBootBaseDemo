@@ -31,7 +31,6 @@ public class DataSourceConfiguration {
     @Bean(name="writeDataSource")
     @ConfigurationProperties(prefix = "datasource.write")
     public DataSource writeDataSource(){
-        logger.info("-------------------- writeDataSource init ---------------------");
         DataSource writeDataSource=DataSourceBuilder.create().type(dataSourceType).build();
         return writeDataSource;
     }
@@ -40,7 +39,6 @@ public class DataSourceConfiguration {
     @Bean(name="readDataSource1")
     @ConfigurationProperties(prefix = "datasource.read1")
     public DataSource readDataSource01(){
-        logger.info("-------------------- readDataSource01 init ---------------------");
         return DataSourceBuilder.create().type(dataSourceType).build();
     }
 
@@ -48,7 +46,6 @@ public class DataSourceConfiguration {
     @Bean(name="readDataSource2")
     @ConfigurationProperties(prefix = "datasource.read2")
     public DataSource readDataSource02(){
-        logger.info("-------------------- readDataSource02 init ---------------------");
         return DataSourceBuilder.create().type(dataSourceType).build();
     }
 

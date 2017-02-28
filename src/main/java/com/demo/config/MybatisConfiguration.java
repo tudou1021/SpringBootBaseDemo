@@ -96,7 +96,7 @@ public class MybatisConfiguration extends MybatisAutoConfiguration {
      */
     @Bean
     public AbstractRoutingDataSource roundRobinDataSource() {
-         int size = Integer.parseInt(dataSourceSize);
+        int size = Integer.parseInt(dataSourceSize);
         DataSourceRouter dataSourceRouter = new DataSourceRouter(size);
         Map<Object, Object> targetDataSources = new HashMap<Object, Object>();
         DataSource writeDataSource = (DataSource) BeanContext.getBean("writeDataSource");

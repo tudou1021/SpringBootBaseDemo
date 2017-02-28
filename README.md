@@ -26,7 +26,11 @@
 
 #SpringBoot参考文档
 
-1、常用注解：http://www.iteye.com/topic/1144685
+1、常用注解参考：
+
+http://www.cnblogs.com/woms/p/5754200.html 
+
+http://www.iteye.com/topic/1144685
 
 2、常用Starter参考：http://blog.csdn.net/chszs/article/details/50610474
 

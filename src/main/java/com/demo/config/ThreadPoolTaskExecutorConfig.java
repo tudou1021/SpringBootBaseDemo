@@ -74,6 +74,8 @@ public class ThreadPoolTaskExecutorConfig extends WebMvcAutoConfiguration.WebMvc
         taskExecutor.setQueueCapacity(queueCapacity);
         //线程存活时间
         taskExecutor.setKeepAliveSeconds(keepAliveSeconds);
+        //线程名称前缀
+        taskExecutor.setThreadNamePrefix("demo-");
         //线程池饱和策略
         taskExecutor.setRejectedExecutionHandler(new RejectedExecutionHandler() {
             @Override
